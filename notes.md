@@ -173,3 +173,61 @@ console.log('watch movie');
 })
 ```
 Callback code is very hard to read and to debug, you should avoid is as much as possible.
+
+# Promise , Async/Await
+
+synchronos operations: operations that run on the spot
+
+Asynchronos operation example
+```Javascript
+let hey = 'you';
+console.log(hey);
+setTimeout(()=>{
+    console.log("hello");
+}, 1000)
+console.log("there")
+```
+output : you
+        there
+        hello
+
+Async operations only run after synchronos operations are executed
+
+### Promise : 
+an **object** that holds logic to be executed "later".
+
+```Javascript
+const buyIceCream = function(amount = 5){
+    return new Promise(function(resolve, reject){
+        // resolve - a function to call when the promise is sucessful
+        // reject - a function to call when the promise fails
+
+        setTimeout(()=>{
+            if (amount < 3>){
+                reject('not enough money');
+            }else{
+                resolve ('An Ice cream');
+            }
+        })
+    })
+}
+buyIceCream()
+    .then((response)=>{
+        console.log(response) //'An Ice cream'
+    })
+    .catch((error)=>{
+        console.log(error); // 
+    })
+
+```
+### Async function
+```Javascript
+const buyIceCream2 = async function(amount = 5){
+    if (amount < 3){
+        throw new Error('not enough moneey');
+    }else{
+        return 'An Ice cream!';
+    }
+}
+```
+this fulfills the same function as the code above
