@@ -203,7 +203,7 @@ const buyIceCream = function(amount = 5){
         // reject - a function to call when the promise fails
 
         setTimeout(()=>{
-            if (amount < 3>){
+            if (amount < 3){
                 reject('not enough money');
             }else{
                 resolve ('An Ice cream');
@@ -231,3 +231,61 @@ const buyIceCream2 = async function(amount = 5){
 }
 ```
 this fulfills the same function as the code above
+
+the **await** keyword causes the promise to be executed synchronisly
+
+## Ternary operators
+___
+```Javascript
+let age = 16;
+let name = age > 10 ? "Pedro" : "Jack";
+```
+is equivalent to
+```Javascript
+let age = 16;
+let name;
+if (age > 10){
+    name = "Pedro"
+}else{
+    name = "Jack"
+}
+```
+
+## Objects
+___
+
+```Javascript
+const person = {
+    name : "Pedro",
+    age : 20,
+    isMarried : false,
+};
+
+const {name, age, isMarried} = person;
+//construct object with these variables
+
+const person2 = {...person, name : "Jack"}
+//speread operator
+
+
+const names = ["Pedro", "Jack", "Jessica"];
+const names2 = [...names, "Joel"];
+//very useful with arrays
+```
+## Advanced array functions
+```Javascript
+let names = ["Pedro","Jessica", "Carol"];
+
+names.map((name) => {
+    return name + "1" //["Pedro1","Jessica1",...]
+})
+
+let names = ["Pedro","Jessica", "Carol", "Pedro", "Pedro"];
+names.fiter((name)=>{
+    return name !== "Pedro";
+    //remove any name that's not Pedro
+})
+```
+
+## Async, Await, Filters
+___
